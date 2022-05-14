@@ -28,5 +28,5 @@
   Deberá recibir los datos del formulario de edición.
   <br>
 
-- "/products/:id "
+- "/products/:id "  (completado)
   Botón BORRAR: eliminará al producto de la base de datos JSON
