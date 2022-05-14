@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%- include('partials/head', {title: '¿?'}) %>
+<%- include('partials/head', {title: selectedProduct.name}) %>
 <body>
 	<!-- Header -->
 	<%- include('partials/headerNavbar') %>
@@ -11,33 +11,39 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Detalle del producto: NOMBRE DEL PRODUCTO</h2>
+				<h2 class="products-title">Detalle del producto: <%= selectedProduct.name %> </h2>
 			</div>
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<div class="col-12 col-lg-8">
-					<img src="/images/products/¿?" alt="product image" class="product-detail-img">
+					<img src="/images/products/<%= selectedProduct.image %> " alt="product image" class="product-detail-img">
 					<p class="product-detail-description">
-						PRODUCT DESCRIPTION
+						<%= selectedProduct.description %> 
 					</p>
 				</div>
 				<div class="col-12 col-lg-4">
 					<article class="product-detail-info">
-						<h2 class="product-detail-title">PRODUCT NAME</h2>
+						<h2 class="product-detail-title"><%= selectedProduct.name %> </h2>
 						
 							<p class="product-detail-price small">
-								<span>$PRICE</span>
+								<span>$<%= selectedProduct.price %> </span>
 								/
-								<b>DISCOUNT% OFF</b>
+								<b><%= selectedProduct.discount %>% OFF</b>
 							</p>
-							<p class="product-detail-price">
-								$FINAL PRICE
-							</p>
-							<p class="product-detail-price">
-								$PRICE
-							</p>
-
+							<% if (selectedProduct.discount!=0) { %>
+								<p class="product-detail-price">
+									<% let finalPrice = selectedProduct.price - selectedProduct.price * (selectedProduct.discount/100)  %> 
+									$<%= finalPrice  %> 
+								</p>
+								<p class="product-detail-price product-detail-final-price ">
+									$<%= selectedProduct.price  %> 
+								</p>
+								<% } else { %>
+									<p class="product-detail-price">
+										$<%= selectedProduct.price  %> 
+									</p>
+							<% } %>	
 						<ul class="actions-list">
 							<li>
 								<i class="fas fa-credit-card"></i>
@@ -48,12 +54,10 @@
 								<p>Retiro gratis en locales del vendedor</p>
 							</li>
 						</ul>
-
 						<a href="#" class="buy-now-button">COMPRAR AHORA</a>
 						<hr>
-
-						<a href="/products/edit/¿?" class="action-button edit">EDITAR PRODUCTO</a>
-						<form action="/products/delete/¿¿" method="POST" style="display: inline-flex">
+						<a href="/products/edit/<%= selectedProduct.id %> " class="action-button edit">EDITAR PRODUCTO</a>
+						<form action="/products/<%= selectedProduct.id%>?_method=DELETE" method="POST" style="display: inline-flex">
 							<button type="submit" class="action-button delete">ELIMINAR</button>
 						</form>
 					</article>

@@ -317,6 +317,11 @@ hr {
   margin: 10px 0;
 }
 
+.product-detail-final-price {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
 .small {
   font-size: 1.8em;
   color: var(--green);

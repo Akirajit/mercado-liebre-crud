@@ -8,23 +8,23 @@
   Se deberán listar todos los productos presentes en la base de datos JSON (completado)
   <br>
 
-- "/products/:id"
-  Detalle de producto. Cada producto deberá contar con dos botones de acción: BORRAR y MODIFICAR.
+- "/products/detail/:id"
+  Detalle de producto. Cada producto deberá contar con dos botones de acción: BORRAR y MODIFICAR. (completado)
   <br>
 
-- "/products/create"
-  Mostrará el formulario de creación para un producto.
+- "/products/create" 
+  Mostrará el formulario de creación para un producto.   (completado)
   <br>
 
 - "/products/"
-  Deberá recibir los datos del formulario de creación.
+  Deberá recibir los datos del formulario de creación.    (completado)
   <br>
 
 - "/products/edit/:id"
-  Botón MODIFICAR: modificará al producto correspondiente en la base de datos JSON.
+  Botón MODIFICAR: modificará al producto correspondiente en la base de datos JSON.  (completado)
   <br>
 
-- "/products/"
+- "/products/"           (completado)   >> se cambió a /products/:id/ para poder hacer referencia al elemento editado
   Deberá recibir los datos del formulario de edición.
   <br>
 
